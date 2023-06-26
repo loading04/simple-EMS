@@ -2,10 +2,16 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .models import emp
 # Create your views here.
 
 
 def home(request):
+    emps = emp.objects.all()
+    
+    
+
+    
     #check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -21,7 +27,7 @@ def home(request):
             messages.success(request,"There was an Error logging in , please try agian !!")
         
     return render(request,'home.html',{
-        
+        'emps':emps,
     })
        
 
