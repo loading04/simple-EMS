@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # Create your views here.
 
@@ -19,16 +20,21 @@ def home(request):
         else:
             messages.success(request,"There was an Error logging in , please try agian !!")
         
-        
     return render(request,'home.html',{
         
     })
-    
-    
-
+       
 
 def logout_user(request):
-    logout(request,)
+    logout(request)
     messages.success(request,"You have been logged out")
     return redirect('home')
+    
+
+@login_required
+def user_registration(request):
+    
+    return render(request,'registration.html',{
+        
+    })
     

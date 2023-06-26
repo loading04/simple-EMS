@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'employee_management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'emsDB',
+        'NAME': 'database',
         'USER':'postgres',
         'PASSWORD':'***',
         'HOST':'localhost',
