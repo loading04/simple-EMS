@@ -8,8 +8,6 @@ from .models import emp
 
 def home(request):
     emps = emp.objects.all()
-    
-    
 
     
     #check to see if logging in
@@ -24,7 +22,7 @@ def home(request):
             messages.success(request,"You have been logged In")
             return redirect('home')
         else:
-            messages.success(request,"There was an Error logging in , please try agian !!")
+            messages.success(request,"Wrong crendtials , please try agian !!")
         
     return render(request,'home.html',{
         'emps':emps,
